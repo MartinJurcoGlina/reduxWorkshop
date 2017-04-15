@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Todo 1",
+    "text": "Something I shoul do..."
+  },
+  {
+    "id": 2,
+    "title": "Next one",
+    "text": "Don't forget to do this"
+  },
+  {
+    "id": 3,
+    "title": "Todo 3",
+    "text": "Another thing to do"
+  }
+]
