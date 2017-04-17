@@ -9,7 +9,7 @@ import {TodoWrapper} from '../components/todoWrapper';
 
 //TODO import actions
 import {
-  loadTodosAction,
+
 } from '../actions/todo.actions';
 
 export class LandingPage extends React.Component {
@@ -27,7 +27,7 @@ export class LandingPage extends React.Component {
 
   componentDidMount() {
     //TODO load todos using loadTodosAction
-    this.props.loadTodosAction();
+
   }
 
   // we use arrow function so  we don't have to use bind(this) in event handling
@@ -101,7 +101,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   pushAction,
   //TODO actions for todos
-  loadTodosAction,
+
 }, dispatch);
 
 // connects mapStateToProps and mapDispatchToProps to this component

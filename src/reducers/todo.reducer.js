@@ -13,14 +13,13 @@ const deleteTodo = (state, payload) => {
 
 //TODO const initialState
 const initialState = {
-  byId: {},
+
 };
 
 export const todoReducer = (state = initialState, {type, payload}) => {
   switch (type) {
     //TODO set todos - returns state with normalized array
-    case SET_TODOS:
-      return {...state, byId: normalizeArray(payload)};
+
     //TODO save todo - returns state with normalized array with added todo
 
     //TODO update todo - returns state with updated todo
