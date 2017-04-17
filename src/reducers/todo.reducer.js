@@ -8,12 +8,7 @@ export const UPDATE_TODO = 'UPDATE_TODO';
 
 //TODO deleteTodo method - id of todo is in payload, use: delete byId[id] on cloned object
 const deleteTodo = (state, payload) => {
-  const id = payload;
 
-  const byId = {...state.byId};
-  delete byId[id];
-
-  return {...state, byId};
 };
 
 //TODO const initialState
@@ -32,8 +27,7 @@ export const todoReducer = (state = initialState, {type, payload}) => {
     //TODO update todo - returns state with updated todo
 
     //TODO delete todo - returns state with deleted todo
-    case DELETE_TODO:
-      return deleteTodo(state, payload);
+
     default:
       return state;
   }

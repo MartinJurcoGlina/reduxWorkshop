@@ -10,7 +10,6 @@ import {TodoWrapper} from '../components/todoWrapper';
 //TODO import actions
 import {
   loadTodosAction,
-  deleteTodoAction,
   saveTodoAction,
 } from '../actions/todo.actions';
 
@@ -35,7 +34,7 @@ export class LandingPage extends React.Component {
   // we use arrow function so  we don't have to use bind(this) in event handling
   deleteTodo = (todoId) => {
     //TODO delete todo using deleteTodoAction
-    this.props.deleteTodoAction(todoId);
+
   };
 
   //prefills form with todo which should be edited
@@ -104,7 +103,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   pushAction,
   //TODO actions for todos
   loadTodosAction,
-  deleteTodoAction,
   saveTodoAction,
 }, dispatch);
 
