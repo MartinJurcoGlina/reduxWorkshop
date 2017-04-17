@@ -8,5 +8,5 @@ import {todoReducer} from './todo.reducer';
 export const reducers = combineReducers({
   routing: routerReducer,
   //TODO add todoReducer reducer as todos
-  todos: todoReducer
+
 });
