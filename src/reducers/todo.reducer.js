@@ -22,8 +22,7 @@ export const todoReducer = (state = initialState, {type, payload}) => {
     case SET_TODOS:
       return {...state, byId: normalizeArray(payload)};
     //TODO save todo - returns state with normalized array with added todo
-    case SAVE_TODO:
-      return {...state, byId: {...state.byId, ...normalizeArray(payload)}};
+
     //TODO update todo - returns state with updated todo
 
     //TODO delete todo - returns state with deleted todo

@@ -10,7 +10,6 @@ import {TodoWrapper} from '../components/todoWrapper';
 //TODO import actions
 import {
   loadTodosAction,
-  saveTodoAction,
 } from '../actions/todo.actions';
 
 export class LandingPage extends React.Component {
@@ -49,7 +48,7 @@ export class LandingPage extends React.Component {
 
     } else {
       //TODO save new todo using saveTodoAction
-      this.props.saveTodoAction(this.state.todoForm);
+
     }
     this.formReset();
   };
@@ -103,7 +102,6 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   pushAction,
   //TODO actions for todos
   loadTodosAction,
-  saveTodoAction,
 }, dispatch);
 
 // connects mapStateToProps and mapDispatchToProps to this component

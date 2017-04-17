@@ -1,7 +1,6 @@
 //TODO imports from reducer
 import {
   SET_TODOS,
-  SAVE_TODO,
 } from '../reducers/todo.reducer';
 import loaders from '../utils/loaderUtils';
 
@@ -15,9 +14,6 @@ export const loadTodosAction = () => async (dispatch) => {
 };
 //TODO deleteTodoAction parameter: todoId
 
-//TODO saveTodoAction parameter: formData, create random id, payload: [formData]
-export const saveTodoAction = (formData) => (dispatch) => {
-  formData.id = Math.random().toString(36).substring(7);
-  dispatch({type: SAVE_TODO, payload: [formData]});
-};
+//TODO saveTodoAction parameter: formData, create random id: Math.random().toString(36).substring(7);, payload: [formData]
+
 //TODO updateTodoAction parameter: formData, payload: [formData]
