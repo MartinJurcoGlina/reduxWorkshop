@@ -21,9 +21,9 @@ export class TodoWrapper extends React.Component {
 
   render() {
     return (
-      <ul>
+      <div>
         {this.renderTodos()}
-      </ul>
+      </div>
     );
   }
 }

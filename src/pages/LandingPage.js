@@ -2,6 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {push as pushAction} from 'react-router-redux';
+import styles from './LandingPage.module.scss';
 import { Container, Header, Input, TextArea } from 'semantic-ui-react';
 import {TodoForm} from '../components/todoForm';
 import {TodoWrapper} from '../components/todoWrapper';
@@ -63,7 +64,7 @@ export class LandingPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.content}>
         <Header as='h2'>Redux Workshop Todo App</Header>
         <TodoForm todoForm={this.state.todoForm}
                   updateFlag={this.state.updateFlag}

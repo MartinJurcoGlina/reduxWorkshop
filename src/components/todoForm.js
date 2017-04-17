@@ -1,10 +1,16 @@
 import React from 'react';
-import { Button, Input, TextArea } from 'semantic-ui-react';
+import { Button, Input, TextArea, Segment, Form } from 'semantic-ui-react';
 
 export class TodoForm extends React.Component {
 
-  onSubmitHandler = () => {
+  onSubmitHandler = (event) => {
+    event.preventDefault();
     this.props.saveForm(this.props.todoForm);
+  };
+
+  onResetHandler = (event) => {
+    event.preventDefault();
+    this.props.resetForm();
   };
 
   onFormChangeHandler = (event) => {
@@ -27,15 +33,20 @@ export class TodoForm extends React.Component {
       (<Button color='green' disabled={disabledButton} onClick={this.onSubmitHandler}>Save</Button>);
 
     return (
-      <div>
-        <Input name="title" label='Title' placeholder='Enter todo title...' value={this.props.todoForm.title} onChange={this.onFormChangeHandler}/>
-        <br/>
-        <br/>
-        <TextArea name="text" placeholder='Enter todo text...' value={this.props.todoForm.text} onChange={this.onFormChangeHandler}/>
-        <br/>
-        {submitButton}
-        <Button onClick={this.props.resetForm}>Reset</Button>
-      </div>
+      <Segment>
+        <Form>
+          <Form.Field>
+            <label>Title</label>
+            <Input name="title" placeholder='Enter todo title...' value={this.props.todoForm.title} onChange={this.onFormChangeHandler}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Todo Text</label>
+            <TextArea name="text" placeholder='Enter todo text...' value={this.props.todoForm.text} onChange={this.onFormChangeHandler}/>
+          </Form.Field>
+          {submitButton}
+          <Button onClick={this.onResetHandler}>Reset</Button>
+        </Form>
+      </Segment>
     );
   }
 }
