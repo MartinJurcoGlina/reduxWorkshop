@@ -3,6 +3,8 @@ import {browserHistory} from 'react-router';
 import {syncHistoryWithStore, routerMiddleware} from 'react-router-redux';
 import thunk from 'redux-thunk';
 import freeze from 'redux-freeze';
+
+//import of all reducers gathered in index.js in reducers folder
 import {reducers} from './reducers/index';
 
 // add the middlewares

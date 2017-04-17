@@ -3,16 +3,19 @@ import { Button, Input, TextArea, Segment, Form } from 'semantic-ui-react';
 
 export class TodoForm extends React.Component {
 
+  //handles submitting form on clicking Save button - sends form data to parent component for processing, prevents page refresh
   onSubmitHandler = (event) => {
     event.preventDefault();
     this.props.saveForm(this.props.todoForm);
   };
 
+  //handles reseting form on clicking Reset button - calls method from parent component, prevents page refresh
   onResetHandler = (event) => {
     event.preventDefault();
     this.props.resetForm();
   };
 
+  //handles form changes in its fields, calls parent component method which sets its internal state with new data from fields
   onFormChangeHandler = (event) => {
     const formData = {
       property: event.target.name,
@@ -23,11 +26,13 @@ export class TodoForm extends React.Component {
 
   render() {
 
+    //decides if save/update button should be disabled
     let disabledButton = true;
     if(this.props.todoForm.title && this.props.todoForm.text) {
       disabledButton = false;
     }
 
+    //which button Save / Update schould be rendered based on updateFlag
     const submitButton = this.props.updateFlag ?
       (<Button color='blue' disabled={disabledButton} onClick={this.onSubmitHandler}>Update</Button>) :
       (<Button color='green' disabled={disabledButton} onClick={this.onSubmitHandler}>Save</Button>);

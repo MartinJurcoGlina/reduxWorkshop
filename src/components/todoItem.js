@@ -1,12 +1,15 @@
 import React from 'react';
 import { Button, Segment } from 'semantic-ui-react';
 
+//dummy component which is filled with specific todo data
 export class TodoItem extends React.Component {
 
+  //handles Delete button click, sends id of todo which should be deleted
   onDeleteHandler = () => {
     this.props.onDeleteClick(this.props.todo.id);
   };
 
+  //handles Edit button click, sends todo data of todo which should be edited
   onEditHandler = () => {
     this.props.onEditClick(this.props.todo);
   };
