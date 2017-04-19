@@ -10,7 +10,7 @@
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/MartinJurcoGlina/reduxWorkshop.git"
   },
   "scripts": {
     "start": "webpack-dev-server -d --inline --hot --history-api-fallback",
