@@ -94,7 +94,7 @@ LandingPage.propTypes = {
 //mapping of state to component props - data from store -> props
 const mapStateToProps = (state) => ({
   //TODO map byId from store to props
-  todos: state.todos.byId,
+
 });
 
 //maps actions to props
