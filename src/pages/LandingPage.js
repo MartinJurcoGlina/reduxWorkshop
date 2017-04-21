@@ -69,6 +69,7 @@ export class LandingPage extends React.Component {
   };
 
   render() {
+    //TODO send tasks from state to TaskWrapper as its prop
     return (
       <div className={styles.content}>
         <Header as='h2'>Redux Workshop Todo App</Header>
@@ -77,7 +78,7 @@ export class LandingPage extends React.Component {
                   resetForm={this.formReset}
                   saveForm={this.saveTodo}
                   formChangeHandler={this.onFormChange}/>
-        <TodoWrapper todos={this.props.todos} onDeleteTodo={this.deleteTodo} onEditTodo={this.editTodo}/>
+        <TodoWrapper todos={{}} onDeleteTodo={this.deleteTodo} onEditTodo={this.editTodo}/>
       </div>
     )
   }
@@ -85,10 +86,7 @@ export class LandingPage extends React.Component {
 
 LandingPage.propTypes = {
   pushAction: React.PropTypes.func.isRequired,
-  loadTodosAction: React.PropTypes.func.isRequired,
-  deleteTodoAction: React.PropTypes.func.isRequired,
-  saveTodoAction: React.PropTypes.func.isRequired,
-  updateTodoAction: React.PropTypes.func.isRequired
+  //TODO define propTypes for actions
 };
 
 //mapping of state to component props - data from store -> props
