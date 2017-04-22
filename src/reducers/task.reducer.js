@@ -27,7 +27,8 @@ export const taskReducer = (state = initialState, {type, payload}) => {
     case SET_TASKS:
       return {...state, byId: normalizeArray(payload)};
     //TODO save task - returns state with normalized array with added task
-
+    case SAVE_TASK:
+      return {...state, byId: {...state.byId, ...normalizeArray(payload)}};
     //TODO update task - returns state with updated task
 
     //TODO delete task - returns state with deleted task

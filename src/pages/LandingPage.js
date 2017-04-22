@@ -11,6 +11,7 @@ import {TaskWrapper} from '../components/taskWrapper';
 import {
   loadTasksAction,
   deleteTaskAction,
+  saveTaskAction,
 } from '../actions/task.actions';
 
 export class LandingPage extends React.Component {
@@ -49,7 +50,7 @@ export class LandingPage extends React.Component {
 
     } else {
       //TODO save new task using saveTaskAction
-
+      this.props.saveTaskAction(this.state.taskForm);
     }
     this.formReset();
   };
@@ -105,6 +106,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   //TODO actions for tasks
   loadTasksAction,
   deleteTaskAction,
+  saveTaskAction,
 }, dispatch);
 
 // connects mapStateToProps and mapDispatchToProps to this component
