@@ -1,10 +1,10 @@
 import {normalizeArray} from '../utils/reducer.utils';
-export const SET_TODOS = 'SET_TODOS';
-export const DELETE_TODO = 'DELETE_TODO';
-export const SAVE_TODO = 'SAVE_TODO';
-export const UPDATE_TODO = 'UPDATE_TODO';
+export const SET_TASKS = 'SET_TASKS';
+export const DELETE_TASK = 'DELETE_TASK';
+export const SAVE_TASK = 'SAVE_TASK';
+export const UPDATE_TASK = 'UPDATE_TASK';
 
-const deleteTodo = (state, payload) => {
+const deleteTask = (state, payload) => {
   const id = payload;
 
   const byId = {...state.byId};
@@ -17,16 +17,16 @@ const initialState = {
   byId: {},
 };
 
-export const todoReducer = (state = initialState, {type, payload}) => {
+export const taskReducer = (state = initialState, {type, payload}) => {
   switch (type) {
-    case SET_TODOS:
+    case SET_TASKS:
       return {...state, byId: normalizeArray(payload)};
-    case SAVE_TODO:
+    case SAVE_TASK:
       return {...state, byId: {...state.byId, ...normalizeArray(payload)}};
-    case UPDATE_TODO:
+    case UPDATE_TASK:
       return {...state, byId: {...state.byId, [payload.id]: payload}};
-    case DELETE_TODO:
-      return deleteTodo(state, payload);
+    case DELETE_TASK:
+      return deleteTask(state, payload);
     default:
       return state;
   }

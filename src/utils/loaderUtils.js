@@ -1,7 +1,7 @@
 import {queryByAttributes} from './reducer.utils';
-import mockTodos from '../data/todos.json';
+import mockTasks from '../data/tasks.json';
 
 export default {
-  loadTodos: () =>
-    mockTodos
+  loadTasks: () =>
+    mockTasks
 }
