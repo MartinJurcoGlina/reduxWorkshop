@@ -10,6 +10,7 @@ import {TaskWrapper} from '../components/taskWrapper';
 //TODO import actions
 import {
   loadTasksAction,
+  deleteTaskAction,
 } from '../actions/task.actions';
 
 export class LandingPage extends React.Component {
@@ -33,7 +34,7 @@ export class LandingPage extends React.Component {
   // we use arrow function so  we don't have to use bind(this) in event handling
   deleteTask = (taskId) => {
     //TODO delete task using deleteTaskAction
-
+    this.props.deleteTaskAction(taskId);
   };
 
   //prefills form with task which should be edited
@@ -103,6 +104,7 @@ const mapDispatchToProps = (dispatch) => bindActionCreators({
   pushAction,
   //TODO actions for tasks
   loadTasksAction,
+  deleteTaskAction,
 }, dispatch);
 
 // connects mapStateToProps and mapDispatchToProps to this component

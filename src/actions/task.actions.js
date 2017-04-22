@@ -1,6 +1,7 @@
 //TODO imports from reducer
 import {
   SET_TASKS,
+  DELETE_TASK,
 } from '../reducers/task.reducer';
 import loaders from '../utils/loaderUtils';
 
@@ -13,7 +14,9 @@ export const loadTasksAction = () => async (dispatch) => {
   dispatch({type: SET_TASKS, payload: tasks});
 };
 //TODO deleteTaskAction parameter: taskId
-
+export const deleteTaskAction = (taskId) => (dispatch) => {
+  dispatch({type: DELETE_TASK, payload: taskId});
+};
 //TODO saveTaskAction parameter: formData, create random id: Math.random().toString(36).substring(7);, payload: [formData]
 
 //TODO updateTaskAction parameter: formData, payload: [formData]
