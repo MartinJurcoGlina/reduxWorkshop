@@ -3,21 +3,21 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {push as pushAction} from 'react-router-redux';
 import styles from './LandingPage.module.scss';
-import { Container, Header, Input, TextArea } from 'semantic-ui-react';
-import {TodoForm} from '../components/todoForm';
-import {TodoWrapper} from '../components/todoWrapper';
+import { Container, Header} from 'semantic-ui-react';
+import {TaskForm} from '../components/taskForm';
+import {TaskWrapper} from '../components/taskWrapper';
 
 //TODO import actions
 import {
-  loadTodosAction,
-} from '../actions/todo.actions';
+  loadTasksAction,
+} from '../actions/task.actions';
 
 export class LandingPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      todoForm: {
+      taskForm: {
         title: '',
         text: ''
       },
@@ -26,28 +26,28 @@ export class LandingPage extends React.Component {
   }
 
   componentDidMount() {
-    //TODO load todos using loadTodosAction
-    this.props.loadTodosAction();
+    //TODO load tasks using loadTasksAction
+    this.props.loadTasksAction();
   }
 
   // we use arrow function so  we don't have to use bind(this) in event handling
-  deleteTodo = (todoId) => {
-    //TODO delete todo using deleteTodoAction
+  deleteTask = (taskId) => {
+    //TODO delete task using deleteTaskAction
 
   };
 
-  //prefills form with todo which should be edited
-  editTodo = (todo) => {
+  //prefills form with task which should be edited
+  editTask = (task) => {
     this.setState({updateFlag: true});
-    this.setState({todoForm: todo});
+    this.setState({taskForm: task});
   };
 
-  saveTodo = () => {
+  saveTask = () => {
     if(this.state.updateFlag) {
-      //TODO update single toto using updateTodoAction, reset updateFlag to false
+      //TODO update single task using updateTaskAction, reset updateFlag to false
 
     } else {
-      //TODO save new todo using saveTodoAction
+      //TODO save new task using saveTaskAction
 
     }
     this.formReset();
@@ -55,7 +55,7 @@ export class LandingPage extends React.Component {
 
   //resets form
   formReset = () => {
-    this.setState({todoForm: {
+    this.setState({taskForm: {
       title: '',
       text: ''
     },
@@ -65,19 +65,20 @@ export class LandingPage extends React.Component {
 
   //sets internal state on changes in form fields
   onFormChange = (formData) => {
-    this.setState({todoForm: {...this.state.todoForm, [formData.property]: formData.value}});
+    this.setState({taskForm: {...this.state.taskForm, [formData.property]: formData.value}});
   };
 
   render() {
+    //TODO send tasks from state to TaskWrapper as its prop
     return (
       <div className={styles.content}>
-        <Header as='h2'>Redux Workshop Todo App</Header>
-        <TodoForm todoForm={this.state.todoForm}
+        <Header as='h2'>Redux Workshop Task Board App</Header>
+        <TaskForm taskForm={this.state.taskForm}
                   updateFlag={this.state.updateFlag}
                   resetForm={this.formReset}
-                  saveForm={this.saveTodo}
+                  saveForm={this.saveTask}
                   formChangeHandler={this.onFormChange}/>
-        <TodoWrapper todos={this.props.todos} onDeleteTodo={this.deleteTodo} onEditTodo={this.editTodo}/>
+        <TaskWrapper tasks={this.props.tasks} onDeleteTask={this.deleteTask} onEditTask={this.editTask}/>
       </div>
     )
   }
@@ -85,23 +86,23 @@ export class LandingPage extends React.Component {
 
 LandingPage.propTypes = {
   pushAction: React.PropTypes.func.isRequired,
-  loadTodosAction: React.PropTypes.func.isRequired,
-  deleteTodoAction: React.PropTypes.func.isRequired,
-  saveTodoAction: React.PropTypes.func.isRequired,
-  updateTodoAction: React.PropTypes.func.isRequired
+  loadTasksAction: React.PropTypes.func.isRequired,
+  deleteTaskAction: React.PropTypes.func.isRequired,
+  saveTaskAction: React.PropTypes.func.isRequired,
+  updateTaskAction: React.PropTypes.func.isRequired
 };
 
 //mapping of state to component props - data from store -> props
 const mapStateToProps = (state) => ({
   //TODO map byId from store to props
-  todos: state.todos.byId,
+  tasks: state.tasks.byId,
 });
 
 //maps actions to props
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   pushAction,
-  //TODO actions for todos
-  loadTodosAction,
+  //TODO actions for tasks
+  loadTasksAction,
 }, dispatch);
 
 // connects mapStateToProps and mapDispatchToProps to this component

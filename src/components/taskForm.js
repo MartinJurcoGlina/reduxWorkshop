@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Input, TextArea, Segment, Form } from 'semantic-ui-react';
 
-export class TodoForm extends React.Component {
+export class TaskForm extends React.Component {
 
   //handles submitting form on clicking Save button - sends form data to parent component for processing, prevents page refresh
   onSubmitHandler = (event) => {
     event.preventDefault();
-    this.props.saveForm(this.props.todoForm);
+    this.props.saveForm(this.props.taskForm);
   };
 
   //handles reseting form on clicking Reset button - calls method from parent component, prevents page refresh
@@ -28,7 +28,7 @@ export class TodoForm extends React.Component {
 
     //decides if save/update button should be disabled
     let disabledButton = true;
-    if(this.props.todoForm.title && this.props.todoForm.text) {
+    if(this.props.taskForm.title && this.props.taskForm.text) {
       disabledButton = false;
     }
 
@@ -42,11 +42,11 @@ export class TodoForm extends React.Component {
         <Form>
           <Form.Field>
             <label>Title</label>
-            <Input name="title" placeholder='Enter todo title...' value={this.props.todoForm.title} onChange={this.onFormChangeHandler}/>
+            <Input name="title" placeholder='Enter task title...' value={this.props.taskForm.title} onChange={this.onFormChangeHandler}/>
           </Form.Field>
           <Form.Field>
-            <label>Todo Text</label>
-            <TextArea name="text" placeholder='Enter todo text...' value={this.props.todoForm.text} onChange={this.onFormChangeHandler}/>
+            <label>Task Text</label>
+            <TextArea name="text" placeholder='Enter task text...' value={this.props.taskForm.text} onChange={this.onFormChangeHandler}/>
           </Form.Field>
           {submitButton}
           <Button onClick={this.onResetHandler}>Reset</Button>
@@ -56,8 +56,8 @@ export class TodoForm extends React.Component {
   }
 }
 
-TodoForm.propTypes = {
-  todoForm: React.PropTypes.object.isRequired,
+TaskForm.propTypes = {
+  taskForm: React.PropTypes.object.isRequired,
   updateFlag: React.PropTypes.bool.isRequired,
   resetForm: React.PropTypes.func.isRequired,
   saveForm: React.PropTypes.func.isRequired,
