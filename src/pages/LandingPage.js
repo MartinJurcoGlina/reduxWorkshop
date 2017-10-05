@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {push as pushAction} from 'react-router-redux';
 import styles from './LandingPage.module.scss';
-import { Container, Header} from 'semantic-ui-react';
+import { Button, Header} from 'semantic-ui-react';
 import {TaskForm} from '../components/taskForm';
 import {TaskWrapper} from '../components/taskWrapper';
 
@@ -29,7 +29,9 @@ export class LandingPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.loadTasksAction();
+    if(Object.values(this.props.tasks).length < 1) {
+      this.props.loadTasksAction();
+    }
   }
 
   deleteTask = (taskId) => {
@@ -72,6 +74,7 @@ export class LandingPage extends React.Component {
     return (
       <div className={styles.content}>
         <Header as='h2'>Redux Workshop Task Board App</Header>
+        <Button onClick={() => this.props.pushAction('/boss')}>Boss page</Button>
         <TaskForm taskForm={this.state.taskForm}
                   updateFlag={this.state.updateFlag}
                   resetForm={this.formReset}
