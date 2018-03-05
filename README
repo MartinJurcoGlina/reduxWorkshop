@@ -1,7 +1,0 @@
-Type in console:
-
-* git checkout develop
-* npm install
-* git checkout step-0-load
-* npm start
-* in browser open http://localhost:8082/

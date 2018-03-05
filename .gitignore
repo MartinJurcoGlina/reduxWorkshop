@@ -1,8 +1,0 @@
-.idea/
-node_modules/
-public/js/
-public/css/
-coverage
-yarn.lock
-eslint/
-/.happypack/

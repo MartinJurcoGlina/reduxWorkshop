@@ -1,0 +1,17 @@
+.title {
+    padding: 0.29em;
+    margin: 0.5em;
+    color: #003087;
+    background: orange;
+    border: 1px solid #003087;
+    border-radius: 3px;
+}
+
+.checkedTitle {
+    padding: 0.29em;
+    margin: 0.5em;
+    color: #003087;
+    background: green;
+    border: 1px solid #003087;
+    border-radius: 3px;
+}
